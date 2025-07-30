@@ -1,0 +1,11 @@
+E:\Projectos\terminal\terminal\bin\Debug\terminal.exe.config
+E:\Projectos\terminal\terminal\bin\Debug\terminal.exe
+E:\Projectos\terminal\terminal\bin\Debug\terminal.pdb
+E:\Projectos\terminal\terminal\obj\Debug\terminal.csproj.AssemblyReference.cache
+E:\Projectos\terminal\terminal\obj\Debug\terminal.FormTerminal.resources
+E:\Projectos\terminal\terminal\obj\Debug\terminal.Properties.Resources.resources
+E:\Projectos\terminal\terminal\obj\Debug\terminal.csproj.GenerateResource.cache
+E:\Projectos\terminal\terminal\obj\Debug\terminal.csproj.CoreCompileInputs.cache
+E:\Projectos\terminal\terminal\obj\Debug\terminal.exe
+E:\Projectos\terminal\terminal\obj\Debug\terminal.pdb
+E:\Projectos\terminal\terminal\obj\Debug\terminal.exe.config

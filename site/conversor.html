@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Formatos - TechTools Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-tools"></i>
+                <span>TechTools Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="transcricao.html" class="nav-link">Transcrição</a></li>
+                <li><a href="agendador.html" class="nav-link">Agendador</a></li>
+                <li><a href="senhas.html" class="nav-link">Gerador de Senhas</a></li>
+                <li><a href="criptografia.html" class="nav-link">Criptografia</a></li>
+                <li><a href="conversor.html" class="nav-link active">Conversor</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-exchange-alt"></i> Conversor de Formatos</h1>
+            <p>Converta entre diferentes formatos de dados, unidades e sistemas</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="tool-container">
+                <h2>Selecionar Tipo de Conversão</h2>
+                <div class="converter-tabs">
+                    <button class="tab-btn active" data-tab="text">Texto</button>
+                    <button class="tab-btn" data-tab="number">Números</button>
+                    <button class="tab-btn" data-tab="time">Tempo</button>
+                    <button class="tab-btn" data-tab="color">Cores</button>
+                    <button class="tab-btn" data-tab="unit">Unidades</button>
+                </div>
+                
+                <!-- Conversor de Texto -->
+                <div class="converter-panel active" id="text-panel">
+                    <h3>Conversor de Texto</h3>
+                    <form id="textConverterForm">
+                        <div class="form-group">
+                            <label for="textInput">Texto de Entrada:</label>
+                            <textarea id="textInput" class="form-control" rows="4" placeholder="Digite o texto para converter"></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="textFromFormat">De:</label>
+                                <select id="textFromFormat" class="form-control">
+                                    <option value="text">Texto Normal</option>
+                                    <option value="base64">Base64</option>
+                                    <option value="hex">Hexadecimal</option>
+                                    <option value="binary">Binário</option>
+                                    <option value="url">URL Encoded</option>
+                                    <option value="html">HTML Entities</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="textToFormat">Para:</label>
+                                <select id="textToFormat" class="form-control">
+                                    <option value="base64">Base64</option>
+                                    <option value="text">Texto Normal</option>
+                                    <option value="hex">Hexadecimal</option>
+                                    <option value="binary">Binário</option>
+                                    <option value="url">URL Encoded</option>
+                                    <option value="html">HTML Entities</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-sync-alt"></i> Converter
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Conversor de Números -->
+                <div class="converter-panel" id="number-panel">
+                    <h3>Conversor de Números</h3>
+                    <form id="numberConverterForm">
+                        <div class="form-group">
+                            <label for="numberInput">Número de Entrada:</label>
+                            <input type="text" id="numberInput" class="form-control" placeholder="Digite o número para converter">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="numberFromBase">Base de Entrada:</label>
+                                <select id="numberFromBase" class="form-control">
+                                    <option value="10">Decimal (10)</option>
+                                    <option value="2">Binário (2)</option>
+                                    <option value="8">Octal (8)</option>
+                                    <option value="16">Hexadecimal (16)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="numberToBase">Base de Saída:</label>
+                                <select id="numberToBase" class="form-control">
+                                    <option value="2">Binário (2)</option>
+                                    <option value="10">Decimal (10)</option>
+                                    <option value="8">Octal (8)</option>
+                                    <option value="16">Hexadecimal (16)</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-calculator"></i> Converter
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Conversor de Tempo -->
+                <div class="converter-panel" id="time-panel">
+                    <h3>Conversor de Tempo</h3>
+                    <form id="timeConverterForm">
+                        <div class="form-group">
+                            <label for="timeInput">Valor de Tempo:</label>
+                            <input type="number" id="timeInput" class="form-control" placeholder="Digite o valor">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="timeFromUnit">De:</label>
+                                <select id="timeFromUnit" class="form-control">
+                                    <option value="seconds">Segundos</option>
+                                    <option value="minutes">Minutos</option>
+                                    <option value="hours">Horas</option>
+                                    <option value="days">Dias</option>
+                                    <option value="weeks">Semanas</option>
+                                    <option value="months">Meses</option>
+                                    <option value="years">Anos</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeToUnit">Para:</label>
+                                <select id="timeToUnit" class="form-control">
+                                    <option value="minutes">Minutos</option>
+                                    <option value="seconds">Segundos</option>
+                                    <option value="hours">Horas</option>
+                                    <option value="days">Dias</option>
+                                    <option value="weeks">Semanas</option>
+                                    <option value="months">Meses</option>
+                                    <option value="years">Anos</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-clock"></i> Converter
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Conversor de Cores -->
+                <div class="converter-panel" id="color-panel">
+                    <h3>Conversor de Cores</h3>
+                    <form id="colorConverterForm">
+                        <div class="form-group">
+                            <label for="colorInput">Cor de Entrada:</label>
+                            <input type="text" id="colorInput" class="form-control" placeholder="Digite a cor (ex: #FF0000, rgb(255,0,0), red)">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="colorFromFormat">De:</label>
+                                <select id="colorFromFormat" class="form-control">
+                                    <option value="hex">Hexadecimal (#RRGGBB)</option>
+                                    <option value="rgb">RGB (r,g,b)</option>
+                                    <option value="hsl">HSL (h,s%,l%)</option>
+                                    <option value="name">Nome da Cor</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="colorToFormat">Para:</label>
+                                <select id="colorToFormat" class="form-control">
+                                    <option value="rgb">RGB (r,g,b)</option>
+                                    <option value="hex">Hexadecimal (#RRGGBB)</option>
+                                    <option value="hsl">HSL (h,s%,l%)</option>
+                                    <option value="name">Nome da Cor</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="color-preview">
+                            <div class="color-swatch" id="colorSwatch"></div>
+                            <span id="colorPreviewText">Visualização da cor</span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-palette"></i> Converter
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Conversor de Unidades -->
+                <div class="converter-panel" id="unit-panel">
+                    <h3>Conversor de Unidades</h3>
+                    <form id="unitConverterForm">
+                        <div class="form-group">
+                            <label for="unitInput">Valor:</label>
+                            <input type="number" id="unitInput" class="form-control" placeholder="Digite o valor">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="unitCategory">Categoria:</label>
+                                <select id="unitCategory" class="form-control">
+                                    <option value="length">Comprimento</option>
+                                    <option value="weight">Peso</option>
+                                    <option value="area">Área</option>
+                                    <option value="volume">Volume</option>
+                                    <option value="temperature">Temperatura</option>
+                                    <option value="speed">Velocidade</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="unitFrom">De:</label>
+                                <select id="unitFrom" class="form-control">
+                                    <!-- Preenchido dinamicamente -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="unitTo">Para:</label>
+                                <select id="unitTo" class="form-control">
+                                    <!-- Preenchido dinamicamente -->
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-ruler"></i> Converter
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="tool-container" id="converterResult" style="display: none;">
+                <h2>Resultado da Conversão</h2>
+                <div class="converter-result">
+                    <div class="result-section">
+                        <h3>Entrada</h3>
+                        <div class="result-display" id="converterInput"></div>
+                    </div>
+                    <div class="result-section">
+                        <h3>Saída</h3>
+                        <div class="result-display" id="converterOutput"></div>
+                    </div>
+                </div>
+                <div class="converter-actions">
+                    <button class="btn btn-primary" onclick="copyConverterResult()">
+                        <i class="fas fa-copy"></i> Copiar Resultado
+                    </button>
+                    <button class="btn btn-secondary" onclick="swapConverterValues()">
+                        <i class="fas fa-exchange-alt"></i> Trocar
+                    </button>
+                </div>
+            </div>
+            
+            <div class="tool-container">
+                <h2>Histórico de Conversões</h2>
+                <div id="converterHistoryContainer">
+                    <p>Nenhuma conversão realizada ainda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechTools Pro</h3>
+                    <p>Ferramentas profissionais para suas necessidades diárias.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="transcricao.html">Transcrição de Áudio</a></li>
+                        <li><a href="agendador.html">Agendador de Emails</a></li>
+                        <li><a href="senhas.html">Gerador de Senhas</a></li>
+                        <li><a href="criptografia.html">Criptografia</a></li>
+                        <li><a href="conversor.html">Conversor</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-envelope"></i> contato@techtoolspro.com</p>
+                    <p><i class="fas fa-phone"></i> +55 (11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechTools Pro. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="conversor.js"></script>
+</body>
+</html> 

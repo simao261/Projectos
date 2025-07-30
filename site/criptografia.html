@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Criptografia - TechTools Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-tools"></i>
+                <span>TechTools Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="transcricao.html" class="nav-link">Transcrição</a></li>
+                <li><a href="agendador.html" class="nav-link">Agendador</a></li>
+                <li><a href="senhas.html" class="nav-link">Gerador de Senhas</a></li>
+                <li><a href="criptografia.html" class="nav-link active">Criptografia</a></li>
+                <li><a href="conversor.html" class="nav-link">Conversor</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-lock"></i> Calculadora de Criptografia</h1>
+            <p>Codifique e decodifique mensagens com diferentes algoritmos de criptografia</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="tool-container">
+                <h2>Configurações de Criptografia</h2>
+                <p>Escolha o algoritmo e configure as opções de criptografia</p>
+                
+                <form id="cryptoForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cryptoAlgorithm">Algoritmo:</label>
+                            <select id="cryptoAlgorithm" class="form-control">
+                                <option value="caesar">Cifra de César</option>
+                                <option value="vigenere">Cifra de Vigenère</option>
+                                <option value="base64">Base64</option>
+                                <option value="hex">Hexadecimal</option>
+                                <option value="binary">Binário</option>
+                                <option value="morse">Código Morse</option>
+                                <option value="railfence">Rail Fence</option>
+                                <option value="atbash">Atbash</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="cryptoMode">Modo:</label>
+                            <select id="cryptoMode" class="form-control">
+                                <option value="encrypt">Criptografar</option>
+                                <option value="decrypt">Descriptografar</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group" id="keyContainer">
+                        <label for="cryptoKey">Chave/Deslocamento:</label>
+                        <input type="text" id="cryptoKey" class="form-control" placeholder="Digite a chave de criptografia">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cryptoText">Texto:</label>
+                        <textarea id="cryptoText" class="form-control" rows="6" placeholder="Digite o texto para criptografar/descriptografar"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="preserveCase">
+                            Preservar maiúsculas/minúsculas
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="preserveSpaces">
+                            Preservar espaços e pontuação
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-shield-alt"></i> Processar
+                    </button>
+                </form>
+            </div>
+            
+            <div class="tool-container" id="resultContainer" style="display: none;">
+                <h2>Resultado</h2>
+                <div class="crypto-result">
+                    <div class="result-section">
+                        <h3>Texto Original</h3>
+                        <div class="result-text" id="originalText"></div>
+                    </div>
+                    <div class="result-section">
+                        <h3>Texto Processado</h3>
+                        <div class="result-text" id="processedText"></div>
+                    </div>
+                </div>
+                <div class="crypto-actions">
+                    <button class="btn btn-primary" onclick="copyResult()">
+                        <i class="fas fa-copy"></i> Copiar Resultado
+                    </button>
+                    <button class="btn btn-secondary" onclick="downloadResult()">
+                        <i class="fas fa-download"></i> Baixar
+                    </button>
+                    <button class="btn btn-success" onclick="swapTexts()">
+                        <i class="fas fa-exchange-alt"></i> Trocar
+                    </button>
+                </div>
+            </div>
+            
+            <div class="tool-container">
+                <h2>Histórico de Criptografia</h2>
+                <div id="cryptoHistoryContainer">
+                    <p>Nenhuma operação realizada ainda.</p>
+                </div>
+            </div>
+            
+            <div class="tool-container">
+                <h2>Informações dos Algoritmos</h2>
+                <div class="algorithm-info">
+                    <div class="algorithm-card">
+                        <h3><i class="fas fa-rotate-right"></i> Cifra de César</h3>
+                        <p>Desloca cada letra por um número fixo de posições no alfabeto. Ex: A→D, B→E com deslocamento 3.</p>
+                    </div>
+                    <div class="algorithm-card">
+                        <h3><i class="fas fa-key"></i> Cifra de Vigenère</h3>
+                        <p>Usa uma palavra-chave para deslocar letras de forma variável. Mais segura que César.</p>
+                    </div>
+                    <div class="algorithm-card">
+                        <h3><i class="fas fa-code"></i> Base64</h3>
+                        <p>Codificação que converte dados binários em texto ASCII usando 64 caracteres.</p>
+                    </div>
+                    <div class="algorithm-card">
+                        <h3><i class="fas fa-hashtag"></i> Hexadecimal</h3>
+                        <p>Representa cada caractere como um valor hexadecimal de 2 dígitos.</p>
+                    </div>
+                    <div class="algorithm-card">
+                        <h3><i class="fas fa-dot-circle"></i> Binário</h3>
+                        <p>Converte cada caractere em sua representação binária de 8 bits.</p>
+                    </div>
+                    <div class="algorithm-card">
+                        <h3><i class="fas fa-signal"></i> Código Morse</h3>
+                        <p>Sistema de codificação usando pontos e traços para representar letras e números.</p>
+                    </div>
+                    <div class="algorithm-card">
+                        <h3><i class="fas fa-route"></i> Rail Fence</h3>
+                        <p>Escreve o texto em linhas alternadas e lê em colunas para criar a cifra.</p>
+                    </div>
+                    <div class="algorithm-card">
+                        <h3><i class="fas fa-mirror"></i> Atbash</h3>
+                        <p>Substitui cada letra pela sua inversa no alfabeto: A↔Z, B↔Y, C↔X, etc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechTools Pro</h3>
+                    <p>Ferramentas profissionais para suas necessidades diárias.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="transcricao.html">Transcrição de Áudio</a></li>
+                        <li><a href="agendador.html">Agendador de Emails</a></li>
+                        <li><a href="senhas.html">Gerador de Senhas</a></li>
+                        <li><a href="criptografia.html">Criptografia</a></li>
+                        <li><a href="conversor.html">Conversor</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-envelope"></i> contato@techtoolspro.com</p>
+                    <p><i class="fas fa-phone"></i> +55 (11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechTools Pro. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="criptografia.js"></script>
+</body>
+</html> 

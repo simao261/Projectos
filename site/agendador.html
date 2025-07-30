@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendador de Emails - TechTools Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-tools"></i>
+                <span>TechTools Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="transcricao.html" class="nav-link">Transcrição</a></li>
+                <li><a href="agendador.html" class="nav-link active">Agendador</a></li>
+                <li><a href="senhas.html" class="nav-link">Gerador de Senhas</a></li>
+                <li><a href="criptografia.html" class="nav-link">Criptografia</a></li>
+                <li><a href="conversor.html" class="nav-link">Conversor</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-clock"></i> Agendador de Emails</h1>
+            <p>Programe emails para serem enviados automaticamente no momento ideal</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="tool-container">
+                <h2>Novo Email Agendado</h2>
+                <p>Preencha os dados abaixo para agendar o envio do email</p>
+                
+                <form id="emailForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="recipientEmail">Email do Destinatário:</label>
+                            <input type="email" id="recipientEmail" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipientName">Nome do Destinatário:</label>
+                            <input type="text" id="recipientName" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emailSubject">Assunto:</label>
+                        <input type="text" id="emailSubject" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emailBody">Mensagem:</label>
+                        <textarea id="emailBody" class="form-control" rows="8" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="scheduleDate">Data de Envio:</label>
+                            <input type="date" id="scheduleDate" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="scheduleTime">Horário de Envio:</label>
+                            <input type="time" id="scheduleTime" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="sendCopy">
+                            Enviar cópia para mim
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="priority">Prioridade:</label>
+                        <select id="priority" class="form-control">
+                            <option value="normal">Normal</option>
+                            <option value="high">Alta</option>
+                            <option value="urgent">Urgente</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-save"></i> Agendar Email
+                    </button>
+                </form>
+            </div>
+            
+            <div class="tool-container">
+                <h2>Emails Agendados</h2>
+                <div id="scheduledEmailsContainer">
+                    <p>Nenhum email agendado ainda.</p>
+                </div>
+            </div>
+            
+            <div class="tool-container">
+                <h2>Histórico de Envios</h2>
+                <div id="emailHistoryContainer">
+                    <p>Nenhum email enviado ainda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechTools Pro</h3>
+                    <p>Ferramentas profissionais para suas necessidades diárias.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="transcricao.html">Transcrição de Áudio</a></li>
+                        <li><a href="agendador.html">Agendador de Emails</a></li>
+                        <li><a href="senhas.html">Gerador de Senhas</a></li>
+                        <li><a href="criptografia.html">Criptografia</a></li>
+                        <li><a href="conversor.html">Conversor</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-envelope"></i> contato@techtoolspro.com</p>
+                    <p><i class="fas fa-phone"></i> +55 (11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechTools Pro. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="agendador.js"></script>
+</body>
+</html> 

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas - TechTools Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-tools"></i>
+                <span>TechTools Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="transcricao.html" class="nav-link">Transcrição</a></li>
+                <li><a href="agendador.html" class="nav-link">Agendador</a></li>
+                <li><a href="senhas.html" class="nav-link active">Gerador de Senhas</a></li>
+                <li><a href="criptografia.html" class="nav-link">Criptografia</a></li>
+                <li><a href="conversor.html" class="nav-link">Conversor</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-key"></i> Gerador de Senhas</h1>
+            <p>Crie senhas seguras com regras customizáveis para proteger suas contas</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="tool-container">
+                <h2>Configurações da Senha</h2>
+                <p>Personalize as regras para gerar sua senha segura</p>
+                
+                <form id="passwordForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="passwordLength">Comprimento da Senha:</label>
+                            <input type="range" id="passwordLength" min="8" max="64" value="16" class="form-control">
+                            <span id="lengthValue">16 caracteres</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordCount">Quantidade de Senhas:</label>
+                            <input type="number" id="passwordCount" min="1" max="20" value="1" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="password-options">
+                        <h3>Tipos de Caracteres</h3>
+                        <div class="options-grid">
+                            <label class="option-item">
+                                <input type="checkbox" id="uppercase" checked>
+                                <span class="option-text">
+                                    <i class="fas fa-font"></i>
+                                    Letras Maiúsculas (A-Z)
+                                </span>
+                            </label>
+                            
+                            <label class="option-item">
+                                <input type="checkbox" id="lowercase" checked>
+                                <span class="option-text">
+                                    <i class="fas fa-font"></i>
+                                    Letras Minúsculas (a-z)
+                                </span>
+                            </label>
+                            
+                            <label class="option-item">
+                                <input type="checkbox" id="numbers" checked>
+                                <span class="option-text">
+                                    <i class="fas fa-hashtag"></i>
+                                    Números (0-9)
+                                </span>
+                            </label>
+                            
+                            <label class="option-item">
+                                <input type="checkbox" id="symbols">
+                                <span class="option-text">
+                                    <i class="fas fa-asterisk"></i>
+                                    Símbolos (!@#$%^&*)
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="password-options">
+                        <h3>Regras Especiais</h3>
+                        <div class="options-grid">
+                            <label class="option-item">
+                                <input type="checkbox" id="noSimilar">
+                                <span class="option-text">
+                                    <i class="fas fa-ban"></i>
+                                    Excluir caracteres similares (l, 1, I, O, 0)
+                                </span>
+                            </label>
+                            
+                            <label class="option-item">
+                                <input type="checkbox" id="noAmbiguous">
+                                <span class="option-text">
+                                    <i class="fas fa-eye-slash"></i>
+                                    Excluir caracteres ambíguos ({}, [], (), /, \\)
+                                </span>
+                            </label>
+                            
+                            <label class="option-item">
+                                <input type="checkbox" id="noRepeating">
+                                <span class="option-text">
+                                    <i class="fas fa-repeat"></i>
+                                    Evitar caracteres repetidos
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customChars">Caracteres Personalizados:</label>
+                        <input type="text" id="customChars" class="form-control" placeholder="Ex: @#$% (opcional)">
+                        <small>Adicione caracteres específicos que você quer incluir</small>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-magic"></i> Gerar Senhas
+                    </button>
+                </form>
+            </div>
+            
+            <div class="tool-container" id="resultContainer" style="display: none;">
+                <h2>Senhas Geradas</h2>
+                <div id="passwordResults"></div>
+                <div class="password-actions">
+                    <button class="btn btn-primary" onclick="copyAllPasswords()">
+                        <i class="fas fa-copy"></i> Copiar Todas
+                    </button>
+                    <button class="btn btn-secondary" onclick="downloadPasswords()">
+                        <i class="fas fa-download"></i> Baixar Lista
+                    </button>
+                </div>
+            </div>
+            
+            <div class="tool-container">
+                <h2>Verificador de Força</h2>
+                <div class="strength-checker">
+                    <div class="form-group">
+                        <label for="testPassword">Teste a força da sua senha:</label>
+                        <input type="password" id="testPassword" class="form-control" placeholder="Digite uma senha para testar">
+                    </div>
+                    <div id="strengthResult"></div>
+                </div>
+            </div>
+            
+            <div class="tool-container">
+                <h2>Histórico de Senhas</h2>
+                <div id="passwordHistoryContainer">
+                    <p>Nenhuma senha gerada ainda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechTools Pro</h3>
+                    <p>Ferramentas profissionais para suas necessidades diárias.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="transcricao.html">Transcrição de Áudio</a></li>
+                        <li><a href="agendador.html">Agendador de Emails</a></li>
+                        <li><a href="senhas.html">Gerador de Senhas</a></li>
+                        <li><a href="criptografia.html">Criptografia</a></li>
+                        <li><a href="conversor.html">Conversor</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-envelope"></i> contato@techtoolspro.com</p>
+                    <p><i class="fas fa-phone"></i> +55 (11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechTools Pro. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="senhas.js"></script>
+</body>
+</html> 

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcrição de Áudio - TechTools Pro</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-tools"></i>
+                <span>TechTools Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="transcricao.html" class="nav-link active">Transcrição</a></li>
+                <li><a href="agendador.html" class="nav-link">Agendador</a></li>
+                <li><a href="senhas.html" class="nav-link">Gerador de Senhas</a></li>
+                <li><a href="criptografia.html" class="nav-link">Criptografia</a></li>
+                <li><a href="conversor.html" class="nav-link">Conversor</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-microphone"></i> Transcrição de Áudio</h1>
+            <p>Converta seus arquivos de áudio em texto de forma rápida e precisa</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <div class="tool-container">
+                <h2>Upload de Arquivo de Áudio</h2>
+                <p>Selecione um arquivo de áudio para começar a transcrição. Formatos suportados: MP3, WAV, M4A, OGG</p>
+                
+                <form id="transcriptionForm">
+                    <div class="form-group">
+                        <label for="audioFile">Arquivo de Áudio:</label>
+                        <input type="file" id="audioFile" class="form-control" accept="audio/*" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="language">Idioma:</label>
+                        <select id="language" class="form-control">
+                            <option value="pt-BR">Português (Brasil)</option>
+                            <option value="en-US">Inglês (EUA)</option>
+                            <option value="es-ES">Espanhol</option>
+                            <option value="fr-FR">Francês</option>
+                            <option value="de-DE">Alemão</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="punctuation" checked>
+                            Incluir pontuação
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="timestamps">
+                            Incluir timestamps
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-play"></i> Iniciar Transcrição
+                    </button>
+                </form>
+                
+                <div id="progressContainer" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p id="progressText">Processando...</p>
+                </div>
+                
+                <div id="resultContainer" style="display: none;">
+                    <h3>Transcrição Concluída</h3>
+                    <div class="result-area" id="transcriptionResult"></div>
+                    <div class="result-actions">
+                        <button class="btn btn-primary" onclick="copyTranscription()">
+                            <i class="fas fa-copy"></i> Copiar Texto
+                        </button>
+                        <button class="btn btn-secondary" onclick="downloadTranscription()">
+                            <i class="fas fa-download"></i> Baixar TXT
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tool-container">
+                <h2>Histórico de Transcrições</h2>
+                <div id="historyContainer">
+                    <p>Nenhuma transcrição realizada ainda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechTools Pro</h3>
+                    <p>Ferramentas profissionais para suas necessidades diárias.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="transcricao.html">Transcrição de Áudio</a></li>
+                        <li><a href="agendador.html">Agendador de Emails</a></li>
+                        <li><a href="senhas.html">Gerador de Senhas</a></li>
+                        <li><a href="criptografia.html">Criptografia</a></li>
+                        <li><a href="conversor.html">Conversor</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-envelope"></i> contato@techtoolspro.com</p>
+                    <p><i class="fas fa-phone"></i> +55 (11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechTools Pro. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="transcricao.js"></script>
+</body>
+</html> 

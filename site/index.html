@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechTools Pro - Ferramentas Profissionais</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <i class="fas fa-tools"></i>
+                <span>TechTools Pro</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Início</a></li>
+                <li><a href="transcricao.html" class="nav-link">Transcrição</a></li>
+                <li><a href="agendador.html" class="nav-link">Agendador</a></li>
+                <li><a href="senhas.html" class="nav-link">Gerador de Senhas</a></li>
+                <li><a href="criptografia.html" class="nav-link">Criptografia</a></li>
+                <li><a href="conversor.html" class="nav-link">Conversor</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-btn">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ferramentas Profissionais para Suas Necessidades</h1>
+            <p>Soluções inteligentes para transcrição, agendamento e segurança</p>
+            <div class="hero-buttons">
+                <a href="transcricao.html" class="btn btn-primary">Começar Agora</a>
+                <a href="#servicos" class="btn btn-secondary">Ver Serviços</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <i class="fas fa-rocket"></i>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section id="servicos" class="services">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>Transcrição de Áudio</h3>
+                    <p>Converta arquivos de áudio em texto de forma rápida e precisa. Suporte para múltiplos formatos.</p>
+                    <a href="transcricao.html" class="service-link">Acessar <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Agendador de Emails</h3>
+                    <p>Programe emails para serem enviados automaticamente no momento ideal. Gerencie sua comunicação.</p>
+                    <a href="agendador.html" class="service-link">Acessar <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Gerador de Senhas</h3>
+                    <p>Crie senhas seguras com regras customizáveis. Proteja suas contas com senhas fortes.</p>
+                    <a href="senhas.html" class="service-link">Acessar <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Calculadora de Criptografia</h3>
+                    <p>Codifique e decodifique mensagens com diferentes algoritmos de criptografia clássica.</p>
+                    <a href="criptografia.html" class="service-link">Acessar <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Conversor de Formatos</h3>
+                    <p>Converta entre diferentes formatos de dados, unidades e sistemas de forma rápida.</p>
+                    <a href="conversor.html" class="service-link">Acessar <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard">
+        <div class="container">
+            <h2>Estatísticas de Uso</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="transcriptionCount">0</h3>
+                        <p>Transcrições Realizadas</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="emailCount">0</h3>
+                        <p>Emails Agendados</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="passwordCount">0</h3>
+                        <p>Senhas Geradas</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="cryptoCount">0</h3>
+                        <p>Operações de Criptografia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Por que escolher nossas ferramentas?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Segurança</h3>
+                    <p>Todos os dados são processados localmente, garantindo máxima privacidade.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Rapidez</h3>
+                    <p>Processamento rápido e eficiente para todas as suas necessidades.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsivo</h3>
+                    <p>Funciona perfeitamente em qualquer dispositivo, desktop ou mobile.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-cog"></i>
+                    <h3>Customizável</h3>
+                    <p>Adapte as ferramentas às suas necessidades específicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechTools Pro</h3>
+                    <p>Ferramentas profissionais para suas necessidades diárias.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="transcricao.html">Transcrição de Áudio</a></li>
+                        <li><a href="agendador.html">Agendador de Emails</a></li>
+                        <li><a href="senhas.html">Gerador de Senhas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-envelope"></i> contato@techtoolspro.com</p>
+                    <p><i class="fas fa-phone"></i> +55 (11) 99999-9999</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechTools Pro. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,94 @@
+:root{
+  --bg: #0b0d12;
+  --panel: #11151c;
+  --panel-2: #141a23;
+  --text: #e7ecf3;
+  --muted: #98a2b3;
+  --primary: #50b57d;
+  --primary-600: #3e9b67;
+  --primary-700: #2f7b52;
+  --accent: #7ea6ff;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 80% -10%, rgba(80,181,125,.15), transparent 60%), var(--bg);
+  color: var(--text);
+}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.site-header{position:sticky;top:0;background:rgba(11,13,18,.8);backdrop-filter:blur(8px);border-bottom:1px solid #1e2430;z-index:10}
+.header-content{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.4px}
+.logo{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--primary),#7dd3fc);color:#04120b;box-shadow:var(--shadow)}
+.brand-text{font-weight:800}
+.main-nav{display:flex;gap:18px}
+.nav-link{color:var(--muted);text-decoration:none;padding:10px 12px;border-radius:10px}
+.nav-link:hover,.nav-link[aria-current="page"]{background:var(--panel-2);color:var(--text)}
+.site-footer{border-top:1px solid #1e2430;background:var(--panel);margin-top:48px}
+
+/* Home / list */
+.home-hero{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center;margin-top:24px}
+.home-hero .title{font-weight:800;font-size:42px;line-height:1.1;margin:0 0 8px}
+.home-hero .subtitle{color:var(--muted);margin:0 0 18px}
+.hero-card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid #1f2733;border-radius:18px;box-shadow:var(--shadow);padding:22px}
+.CTA{display:flex;gap:12px;flex-wrap:wrap}
+.button{appearance:none;border:0;background:var(--primary);color:#07130d;font-weight:700;padding:12px 16px;border-radius:12px;cursor:pointer;box-shadow:0 6px 20px rgba(80,181,125,.35)}
+.button.secondary{background:transparent;color:var(--text);border:1px solid #2a3343}
+.button:hover{transform:translateY(-1px)}
+.button:active{transform:translateY(0)}
+
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;margin-top:28px}
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+  border:1px solid #1f2733;border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)
+}
+.card .tag{display:inline-flex;align-items:center;gap:8px;background:#0f1420;border:1px solid #1f2733;color:var(--muted);padding:6px 10px;border-radius:999px;font-size:12px}
+.card h3{margin:4px 0 6px;font-size:18px}
+.card p{margin:0;color:var(--muted)}
+.card .card-actions{margin-top:auto;display:flex;gap:10px}
+.card .link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:#dbeafe}
+.card .link:hover{color:white}
+
+/* Game wrapper */
+.view{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid #1f2733;border-radius:18px;box-shadow:var(--shadow);padding:18px;margin-top:20px}
+.view h2{margin:10px 0 12px}
+.view .muted{color:var(--muted)}
+
+/* Hopscotch (Amarelinha) */
+.hop-wrapper{display:grid;grid-template-columns:320px 1fr;gap:24px}
+.hop-panel{background:var(--panel-2);border:1px solid #223043;border-radius:14px;padding:16px}
+.hop-panel .stat{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:10px;background:#0f1420;border:1px solid #1f2733;margin-bottom:8px}
+.hop-panel .controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.hop-panel .hint{color:var(--muted);font-size:14px;margin-top:12px}
+
+.board{
+  position:relative;
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+  border:1px dashed #2b3647;
+  min-height:520px;border-radius:16px;display:grid;place-items:center;overflow:hidden
+}
+.hop-grid{display:grid;grid-template-columns:repeat(3,86px);grid-auto-rows:86px;gap:8px}
+.tile{display:grid;place-items:center;background:#0f1420;border:1px solid #223043;border-radius:12px;color:#dbeafe;font-weight:800;font-size:22px;position:relative}
+.tile.forbidden{outline:3px dashed var(--warning);box-shadow:0 0 0 4px rgba(245,158,11,.15) inset}
+.tile.active{background:linear-gradient(180deg, rgba(80,181,125,.25), rgba(80,181,125,.1));border-color:#2f7b52}
+.tile.goal{background:linear-gradient(180deg, rgba(126,166,255,.22), rgba(126,166,255,.08));border-color:#3b82f6}
+.path-indicator{position:absolute;inset:0;border-radius:12px;pointer-events:none}
+
+.controls-pad{display:grid;grid-template-columns:repeat(3,56px);grid-auto-rows:56px;gap:10px;margin-top:12px}
+.pad-btn{display:grid;place-items:center;background:#101522;border:1px solid #1f2733;border-radius:12px;color:#dbeafe;font-weight:700}
+.pad-btn.primary{background:var(--primary);color:#04120b;border-color:transparent}
+.pad-btn:active{transform:translateY(1px)}
+
+.alert{padding:10px 12px;border-radius:10px;border:1px solid #2a3343;background:#0f1420;margin-top:10px}
+.alert.success{border-color:#1f3a2f;background:rgba(80,181,125,.1)}
+.alert.error{border-color:#3a1f1f;background:rgba(239,68,68,.1)}
+
+@media (max-width: 900px){
+  .home-hero{grid-template-columns:1fr}
+  .hop-wrapper{grid-template-columns:1fr}
+}
